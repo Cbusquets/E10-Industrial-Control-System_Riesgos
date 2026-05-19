@@ -1,0 +1,12 @@
+Fecha: 18/05/2025
+Herramienta: Claude (claude.ai)
+ 
+Prompt:
+Generar el documento docs/04-priorizacion-dread.md para un análisis de riesgos de un sistema
+SCADA/ICS de una planta manufacturera de autopartes ficticia. Debe aplicar la metodología DREAD
+a las 16 amenazas identificadas en el documento 03-analisis-stride.md. Incluir: tabla de criterios
+DREAD con escala detallada (1–10 por criterio, total sobre 50), escala de severidad (CRÍTICO 40-50,
+ALTO 30-39, MEDIO 20-29, BAJO 10-19, MÍNIMO 1-9), matriz DREAD completa con puntaje individual
+por criterio y nivel resultante para cada amenaza, ranking de prioridad de 1° a 16°, y análisis
+de resultados explicando por qué en OT las amenazas de disponibilidad e integridad dominan sobre
+las de confidencialidad.

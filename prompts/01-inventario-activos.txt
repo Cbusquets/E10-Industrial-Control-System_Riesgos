@@ -1,0 +1,12 @@
+Fecha: 18/05/2025
+Herramienta: Claude (claude.ai)
+
+Prompt:
+Generar el documento docs/01-inventario-activos.md para un análisis de riesgos de un sistema 
+SCADA/ICS de una planta manufacturera de autopartes ficticia. El documento debe seguir el 
+formato de la Plantilla_Análisis_de_Riesgo (sección 2: Identificación de Activos) e incluir: 
+activos de información (tabla con ID, activo, tipo de dato, clasificación, propietario), 
+activos tecnológicos (tabla con ID, activo, tipo, criticidad, notas) cubriendo SCADA/HMI, 
+PLCs Siemens S7-1500 y Allen Bradley ControlLogix, red PROFINET y EtherNet/IP, Historian 
+Server, DMZ industrial, VPN de acceso remoto e integración con ERP SAP. También incluir 
+activos intangibles y notas del modelo de red Purdue.

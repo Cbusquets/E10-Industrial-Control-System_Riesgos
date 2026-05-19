@@ -1,0 +1,13 @@
+Fecha: 18/05/2025
+Herramienta: Claude (claude.ai)
+
+Prompt:
+Generar el documento docs/03-analisis-stride.md para un análisis de riesgos de un sistema 
+SCADA/ICS de una planta manufacturera de autopartes ficticia. Debe aplicar la metodología 
+STRIDE a los componentes identificados en los documentos 01 y 02 (inventario de activos y 
+arquitectura). Incluir: tabla resumen de categorías STRIDE, matriz de 16 amenazas con ID, 
+componente, categoría, descripción y CVE/CWE, detalle de las 8 amenazas más críticas con 
+activos afectados, probabilidad, impacto y técnicas MITRE ATT&CK for ICS, resumen por 
+categoría y tabla comparativa de enfoque IT vs OT. Escenario: PLCs Siemens S7-1500 y 
+Allen Bradley ControlLogix, protocolos PROFINET y EtherNet/IP, acceso VPN de proveedores, 
+Historian OSIsoft PI, firewall industrial con DMZ.
