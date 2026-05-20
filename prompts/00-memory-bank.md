@@ -99,6 +99,7 @@ Priorización de las 16 amenazas STRIDE con metodología DREAD. Contiene:
 ## Decisiones Clave Tomadas
 
 - Se usa **Modelo Purdue** como framework de arquitectura (ISA-95)
+- El **alcance del análisis es Nivel 1 a Nivel 4** — el Nivel 0 (sensores/actuadores) aparece en el diagrama como referencia visual pero no se analiza como zona de red (comunicación analógica/digital, sin IP)
 - Las amenazas se numeran **TH01–TH16** en el STRIDE
 - Los activos de información se numeran **A01–A10**
 - Los activos tecnológicos se numeran **T01–T25**
