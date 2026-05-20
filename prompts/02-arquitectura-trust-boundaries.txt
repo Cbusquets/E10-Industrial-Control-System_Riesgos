@@ -1,12 +1,16 @@
-Fecha: 18/05/2025
+Fecha: 20/05/2025
 Herramienta: Claude (claude.ai)
 
 Prompt:
-Generar el documento docs/02-arquitectura-trust-boundaries.md para un análisis de riesgos 
-de un sistema SCADA/ICS de una planta manufacturera de autopartes ficticia. Debe seguir 
-el formato de la Plantilla_Análisis_de_Riesgo (sección 3: Arquitectura del Sistema) e 
-incluir: diagrama ASCII del Modelo Purdue (niveles 0-4), flujos de datos con protocolos 
-(PROFINET, EtherNet/IP, OPC-UA, VPN), tabla de actores del sistema, y 4 trust boundaries 
-detallados (IT/DMZ, DMZ/SCADA, SCADA/PLCs, acceso remoto) con controles actuales, 
-flujos permitidos, riesgo principal y criticidad. Basarse en el inventario de activos 
-del documento 01.
+Generar y actualizar el documento docs/02-arquitectura-trust-boundaries.md para un análisis 
+de riesgos de un sistema SCADA/ICS de una planta manufacturera de autopartes ficticia. 
+Debe seguir el formato de la Plantilla_Análisis_de_Riesgo (sección 3: Arquitectura del Sistema) 
+e incluir: diagrama ASCII actualizado del Modelo Purdue con los 4 trust boundaries (TB-01 a TB-04), 
+separando Cell/Area Zone Siemens (PROFINET) y Allen Bradley (EtherNet/IP) en el nivel 1, 
+con Local HMI, PLCs y switches por zona. Flujos de datos con protocolos (PROFINET, EtherNet/IP, 
+OPC-UA, VPN/TLS), tabla de actores del sistema, y 4 trust boundaries detallados:
+- TB-01: Red corporativa IT ↔ DMZ Industrial (firewall) — criticidad ALTA
+- TB-02: DMZ Industrial ↔ Red SCADA/HMI (switch VLANs) — criticidad ALTA
+- TB-03: Red SCADA ↔ PLCs PROFINET/EtherNet/IP (sin cifrado nativo) — criticidad CRÍTICA
+- TB-04: Acceso remoto externo VPN proveedores ↔ DMZ — criticidad ALTA
+Referencia al diagrama: diagrams/arquitectura.png y diagrams/arquitectura.drawio.

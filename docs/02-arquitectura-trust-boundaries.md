@@ -2,8 +2,8 @@
 **Proyecto:** Análisis de Riesgos - Sistema SCADA/ICS Planta Manufacturera  
 **Escenario:** 10 - Industrial Control System (SCADA/ICS)  
 **Equipo:** Mateo Sparano, Christian Busquets  
-**Fecha:** 18/05/2025  
-**Versión:** 1.0  
+**Fecha:** 20/05/2025  
+**Versión:** 1.1  
 
 ---
 
@@ -14,37 +14,44 @@
 El sistema sigue el **Modelo Purdue (ISA-95)**, que divide la arquitectura en niveles jerárquicos que separan los sistemas de control industrial (OT) de los sistemas corporativos (IT). Esta separación es fundamental para la seguridad del entorno industrial.
 
 ```
+                                          ── TRUST BOUNDARY TB-04 ──
+  [Proveedor Siemens / Rockwell]              VPN / TLS
+           ↓ VPN/TLS                              ↓
 ╔══════════════════════════════════════════════════════════════╗
 ║                    NIVEL 4 - RED CORPORATIVA (IT)            ║
-║   [ERP SAP]  [Correo]  [Sistemas Administrativos]           ║
+║   [ERP SAP]  [Correo]  [PCs Corporativas]  [Internet/Ext.]  ║
 ╠══════════════════════════════════════════════════════════════╣
 ║                ── TRUST BOUNDARY TB-01 ──                    ║
-║                  FIREWALL INDUSTRIAL + DMZ                   ║
+║              FIREWALL INDUSTRIAL + DMZ                       ║
 ╠══════════════════════════════════════════════════════════════╣
-║                 NIVEL 3 - RED OT / DMZ INDUSTRIAL            ║
-║   [Historian Server]  [Servidor Ingeniería]  [VPN Remota]   ║
+║              DMZ INDUSTRIAL                                  ║
+║   [Historian Server]  [Servidor Ingeniería]  [VPN Gateway]  ║
+║                       [AV / Patch Server]                    ║
 ╠══════════════════════════════════════════════════════════════╣
 ║                ── TRUST BOUNDARY TB-02 ──                    ║
-║                     SWITCH INDUSTRIAL                        ║
+║                  SWITCH INDUSTRIAL (VLANs)                   ║
 ╠══════════════════════════════════════════════════════════════╣
-║              NIVEL 2 - RED DE SUPERVISIÓN                    ║
+║         NIVEL 3 - MANUFACTURING ZONE (SCADA / HMI)          ║
 ║   [Servidor SCADA Principal]  [Servidor SCADA Redundante]   ║
 ║   [HMI Sala Control Principal]  [HMI Sala Control Sec.]     ║
+║                      [DB Server]                             ║
 ╠══════════════════════════════════════════════════════════════╣
-║                ── TRUST BOUNDARY TB-03 ──                    ║
-║             SWITCHES PROFINET / EtherNet/IP                  ║
+║         ── TRUST BOUNDARY TB-03 (CRÍTICO) ──                 ║
+║         PROFINET / EtherNet/IP (sin cifrado nativo)          ║
 ╠══════════════════════════════════════════════════════════════╣
-║              NIVEL 1 - RED DE CONTROL                        ║
-║   [PLC Siemens S7-1500 L1]  [PLC Siemens S7-1500 L2]       ║
-║   [PLC Allen Bradley L3]    [PLC Allen Bradley L4]           ║
+║    CELL/AREA ZONE SIEMENS    ║  CELL/AREA ZONE ALLEN BRADLEY ║
+║  [Local HMI]                 ║  [Local HMI]                  ║
+║  [PLC S7-1500 L1]            ║  [PLC ControlLogix L3]        ║
+║  [PLC S7-1500 L2]            ║  [PLC ControlLogix L4]        ║
+║  [Switch PROFINET]           ║  [Switch EtherNet/IP]         ║
 ╠══════════════════════════════════════════════════════════════╣
-║              NIVEL 0 - CAMPO                                 ║
-║   [Sensores Temp/Presión]  [Actuadores]  [Variadores]       ║
+║                     NIVEL 0 - CAMPO                          ║
+║  [Sensores L1] [Actuadores L1] [Sensores L2] [Actuadores L2]║
+║  [Sensores L3] [Actuadores L3] [Sensores L4] [Actuadores L4]║
 ╚══════════════════════════════════════════════════════════════╝
-
-           ↑ Acceso Remoto Externo (VPN)
-      [Proveedor Siemens / Rockwell Automation]
 ```
+
+> **Ver diagrama completo:** `diagrams/arquitectura.png` / `diagrams/arquitectura.drawio`
 
 ---
 

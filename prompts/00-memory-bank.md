@@ -1,6 +1,6 @@
 # Memory Bank - Contexto para IA
 **Proyecto:** Análisis de Riesgos - Sistema SCADA/ICS  
-**Última actualización:** 18/05/2025  
+**Última actualización:** 20/05/2025  
 
 ---
 
@@ -43,14 +43,18 @@ Inventario completo de activos del sistema. Contiene:
 
 ### `docs/02-arquitectura-trust-boundaries.md`
 Arquitectura del sistema y límites de confianza. Contiene:
-- Diagrama ASCII del Modelo Purdue (niveles 0–4)
+- Diagrama ASCII actualizado del Modelo Purdue con los 4 trust boundaries (TB-01 a TB-04)
+- Separación de Cell/Area Zone Siemens (PROFINET) y Allen Bradley (EtherNet/IP) en nivel 1, cada una con Local HMI, PLCs y switch
+- DB Server en Level 3 (Manufacturing Zone)
+- AV/Patch Server en DMZ Industrial
 - Tabla de flujos de datos con protocolos (F01–F08)
 - Tabla de actores del sistema (operador, ingeniero, admin, proveedor externo, ERP, atacante)
 - 4 Trust Boundaries definidos:
   - TB-01: Red corporativa IT ↔ DMZ Industrial (firewall) — criticidad ALTA
-  - TB-02: DMZ Industrial ↔ Red SCADA (switches VLAN) — criticidad ALTA
+  - TB-02: DMZ Industrial ↔ Red SCADA/HMI (switches VLAN) — criticidad ALTA
   - TB-03: Red SCADA ↔ PLCs (PROFINET/EtherNet/IP sin cifrado nativo) — criticidad CRÍTICA
-  - TB-04: Acceso remoto externo ↔ Red OT (VPN sin MFA) — criticidad ALTA
+  - TB-04: Acceso remoto externo VPN proveedores ↔ DMZ — criticidad ALTA
+- Referencia al diagrama: `diagrams/arquitectura.png` y `diagrams/arquitectura.drawio`
 - Supuestos del análisis (VPN permanente, sin IDS/IPS, HMI con parches retrasados, red de campo plana)
 
 ### `docs/03-analisis-stride.md`
@@ -85,7 +89,8 @@ Priorización de las 16 amenazas STRIDE con metodología DREAD. Contiene:
 | `docs/05-mapa-attack.md` | Técnicas MITRE ATT&CK for ICS mapeadas, flujo de ataque | ⏳ Pendiente |
 | `docs/06-plan-mitigacion.md` | Controles de seguridad, plan de segmentación, controles acceso remoto | ⏳ Pendiente |
 | `docs/07-riesgos-residuales.md` | Riesgos que persisten luego de aplicar controles | ⏳ Pendiente |
-| `diagrams/arquitectura.png` | Diagrama visual de arquitectura Purdue con trust boundaries | ⏳ Pendiente |
+| `diagrams/arquitectura.png` | Diagrama visual de arquitectura Purdue con trust boundaries | ✅ Generado (subir al repo) |
+| `diagrams/arquitectura.drawio` | Archivo fuente editable del diagrama | ✅ Generado (subir al repo) |
 | `diagrams/attack-flow.png` | Diagrama visual de flujo de ataque | ⏳ Pendiente |
 | `README.md` | README del repositorio con descripción, herramientas IA, equipo | ⏳ Pendiente |
 
