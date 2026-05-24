@@ -1,9 +1,7 @@
 # Análisis de Riesgos - Escenario 10: Industrial Control System (SCADA/ICS)
 
-**Materia:** Seguridad Informática  
-**Institución:** UTU  
-**Equipo:** Christian Busquets  
-**Entrega:** Mayo 2025  
+**Materia:** Ciberseguridad I  
+**Equipo:** Christian Busquets   
 
 ---
 
