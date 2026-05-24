@@ -1,6 +1,6 @@
 # Memory Bank - Contexto para IA
 **Proyecto:** Análisis de Riesgos - Sistema SCADA/ICS  
-**Última actualización:** 20/05/2025  
+**Última actualización:** 18/05/2025  
 
 ---
 
@@ -9,7 +9,7 @@
 Trabajo académico de análisis de riesgos y modelado de amenazas para la materia de Seguridad Informática (UTU). Se aplica la metodología STRIDE + DREAD sobre un sistema SCADA/ICS ficticio, siguiendo la plantilla `templates/Plantilla_Análisis_de_Riesgo.md`.
 
 **Escenario:** 10 - Industrial Control System (SCADA/ICS)  
-**Equipo:** Mateo Sparano, Christian Busquets  
+**Equipo:** Christian Busquets  
 **Entrega:** 26 o 28 de mayo de 2025  
 **Herramienta IA utilizada:** Claude (claude.ai) - Claude Sonnet 4.6
 
@@ -80,18 +80,39 @@ Priorización de las 16 amenazas STRIDE con metodología DREAD. Contiene:
 - Resultados: 1 amenaza CRÍTICA (TH14 - movimiento lateral IT→OT, 40/50), 14 amenazas ALTO, 1 amenaza MEDIO (TH04 - alteración Historian, 26/50)
 - Análisis de resultados con observación OT vs IT (disponibilidad e integridad dominan sobre confidencialidad)
 
----
+### `docs/05-mapa-attack.md`
+Mapa de técnicas MITRE ATT&CK for ICS. Contiene:
+- 22 técnicas identificadas mapeadas a las amenazas TH01–TH16
+- 9 tácticas ATT&CK for ICS cubiertas (Initial Access, Execution, Persistence, Lateral Movement, Collection, Discovery, Command and Control, Impair Process Control, Inhibit Response Function)
+- Flujo de ataque principal: TH01→TH14→TH03 (VPN→Servidor ingeniería→PLCs)
+- Flujo de ataque secundario: TH08→TH03 (Sniffing PROFINET→Manipulación parámetros)
+- Matriz de impacto IT vs OT por táctica
+- Diagrama visual del flujo de ataque: `diagrams/attack-flow.png`
 
-## Archivos Pendientes de Generar
+### `docs/06-plan-mitigacion.md`
+Plan de mitigación con controles de seguridad. Contiene:
+- Tabla de 18 controles (C01–C18) priorizados según ranking DREAD
+- Controles preventivos, detectivos y correctivos
+- Plan de segmentación de red por zonas (5 zonas con rangos IP y comunicación permitida)
+- Reglas de firewall propuestas (TB-01) con política default deny
+- Controles de acceso remoto VPN (MFA, bajo demanda, grabación de sesión, doble aprobación, timeout)
+- Matriz de controles NIST SP 800-53 / ISA-IEC 62443 con 16 controles referenciados
+
+### `diagrams/arquitectura.png` y `diagrams/arquitectura.drawio`
+Diagrama de arquitectura Purdue con los 4 trust boundaries, zonas de red diferenciadas por color, Cell/Area Zone separadas por fabricante (Siemens/Allen Bradley), protocolos por flecha. Subidos al repo.
+
+### `docs/07-riesgos-residuales.md`
+Riesgos residuales luego de aplicar controles. Contiene:
+- 8 riesgos residuales aceptados (R01–R08)
+- Análisis detallado de los 3 más críticos (protocolos sin cifrado, VPN proveedores, ausencia IDS/IPS)
+- Resumen ejecutivo, 6 recomendaciones prioritarias con plazo, próximos pasos
+- Glosario, referencias y herramientas utilizadas
+
+---
 
 | Archivo | Descripción | Estado |
 |---------|-------------|--------|
-| `docs/05-mapa-attack.md` | Técnicas MITRE ATT&CK for ICS mapeadas, flujo de ataque | ⏳ Pendiente |
-| `docs/06-plan-mitigacion.md` | Controles de seguridad, plan de segmentación, controles acceso remoto | ⏳ Pendiente |
-| `docs/07-riesgos-residuales.md` | Riesgos que persisten luego de aplicar controles | ⏳ Pendiente |
-| `diagrams/arquitectura.png` | Diagrama visual de arquitectura Purdue con trust boundaries | ✅ Generado (subir al repo) |
-| `diagrams/arquitectura.drawio` | Archivo fuente editable del diagrama | ✅ Generado (subir al repo) |
-| `diagrams/attack-flow.png` | Diagrama visual de flujo de ataque | ⏳ Pendiente |
+| `diagrams/attack-flow.png` | Diagrama visual de flujo de ataque | ✅ Generado (exportar y subir al repo) |
 | `README.md` | README del repositorio con descripción, herramientas IA, equipo | ⏳ Pendiente |
 
 ---

@@ -1,0 +1,10 @@
+Fecha: 21/05/2025
+Herramienta: Claude (claude.ai)
+
+Prompt:
+Generar el documento docs/07-riesgos-residuales.md para un análisis de riesgos de un sistema
+SCADA/ICS de una planta manufacturera de autopartes ficticia. Basado en los documentos
+06-plan-mitigacion.md y 03-analisis-stride.md. Incluir: 8 riesgos residuales aceptados con
+justificación, análisis detallado de los 3 más críticos (PROFINET/EtherNet/IP sin cifrado,
+VPN proveedores, ausencia IDS/IPS OT), resumen ejecutivo, 6 recomendaciones prioritarias
+con plazos, próximos pasos, glosario, referencias y herramientas utilizadas.

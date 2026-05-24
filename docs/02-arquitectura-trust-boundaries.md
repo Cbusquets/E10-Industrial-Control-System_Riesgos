@@ -1,7 +1,7 @@
 # 02 - Arquitectura y Trust Boundaries
 **Proyecto:** Análisis de Riesgos - Sistema SCADA/ICS Planta Manufacturera  
 **Escenario:** 10 - Industrial Control System (SCADA/ICS)  
-**Equipo:** Mateo Sparano, Christian Busquets  
+**Equipo:** Christian Busquets  
 **Fecha:** 20/05/2025  
 **Versión:** 1.1  
 

@@ -1,0 +1,12 @@
+Fecha: 21/05/2025
+Herramienta: Claude (claude.ai)
+
+Prompt:
+Generar el documento docs/06-plan-mitigacion.md para un análisis de riesgos de un sistema
+SCADA/ICS de una planta manufacturera de autopartes ficticia. Basado en los documentos
+03-analisis-stride.md y 04-priorizacion-dread.md. Incluir: tabla de 18 controles priorizados
+según ranking DREAD, controles preventivos/detectivos/correctivos, plan de segmentación de
+red en 5 zonas con rangos IP y comunicación permitida, reglas de firewall TB-01 con default
+deny, controles de acceso remoto VPN (MFA, bajo demanda, grabación de sesión, doble
+aprobación, timeout 2h, mínimo privilegio, auditoría post-sesión), y matriz de 16 controles
+NIST SP 800-53 / ISA-IEC 62443 con amenazas cubiertas.

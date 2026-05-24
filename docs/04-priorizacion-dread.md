@@ -1,7 +1,7 @@
 # 04 - Priorización de Riesgos - Metodología DREAD
 **Proyecto:** Análisis de Riesgos - Sistema SCADA/ICS Planta Manufacturera  
 **Escenario:** 10 - Industrial Control System (SCADA/ICS)  
-**Equipo:** Mateo Sparano, Christian Busquets  
+**Equipo:** Christian Busquets  
 **Fecha:** 18/05/2025  
 **Versión:** 1.0  
 

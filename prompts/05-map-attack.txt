@@ -1,0 +1,12 @@
+Fecha: 21/05/2025
+Herramienta: Claude (claude.ai)
+
+Prompt:
+Generar el documento docs/05-mapa-attack.md para un análisis de riesgos de un sistema
+SCADA/ICS de una planta manufacturera de autopartes ficticia. Debe mapear las técnicas
+MITRE ATT&CK for ICS a las 16 amenazas identificadas en el documento 03-analisis-stride.md.
+Incluir: tabla de 22 técnicas con ID, nombre, táctica, amenaza STRIDE relacionada y
+mitigación principal; tabla de 9 tácticas ATT&CK for ICS cubiertas; dos flujos de ataque
+detallados (flujo principal TH01→TH14→TH03 con acceso VPN→movimiento lateral→modificación
+PLC, y flujo secundario TH08→TH03 con sniffing PROFINET→manipulación parámetros); y
+matriz de impacto IT vs OT por táctica.
